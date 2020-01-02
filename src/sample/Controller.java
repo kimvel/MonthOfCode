@@ -9,16 +9,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller {
-
-    private int seconds = 3600;
-    private String time;
-
     @FXML private Text taskText;
     @FXML private ToggleButton btn;
     @FXML private Text timeLeft;
 
-    Timer timer;
+    private int seconds = 3600;
+    private String time;
 
+    private Timer timer;
+
+    // When the button is clicked obviously.
     @FXML void buttonClicked(){
         String getLast = Randomizer.getRandom(Randomizer.availableTasks);
 
@@ -32,7 +32,8 @@ public class Controller {
         }
     }
 
-    private String startTimer (){
+    // Starts a timer for the periode of learning today.
+    private void startTimer (){
 
         timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -58,14 +59,15 @@ public class Controller {
             }
         };
         timer.scheduleAtFixedRate(task, 1000, 1000);
-        return time;
     }
 
-    public void isPaused(){
+    // Helps the timer if pause is needed.
+    private void isPaused(){
         timer.cancel();
     }
 
-    public void isFinished(){
+    // Stops the timer when finished, pretty much the same as the code above.
+    private void isFinished(){
         timer.cancel();
     }
 }

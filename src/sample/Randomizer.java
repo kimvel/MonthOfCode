@@ -1,17 +1,19 @@
 package sample;
 
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import java.util.Random;
 
-public class Randomizer {
+class Randomizer {
 
-    public static String[] availableTasks = {"Arrays", "Enums", "Objects", "Hashmap", "Polymorphism"};
+    // String array that contains "tasks" or the generals of OOP.
+    static String[] availableTasks = {"Arrays", "Enums", "Objects", "Hashmap",
+            "Polymorphism", "Abstraction", "Classes", "Encapsulation", "Information hiding",
+            "Inheritance", "Interface", "Messaging", "Procedure"};
 
-    public static String getRandom(String[] str){
+    // Gives a random String from the availableTasks array.
+    static String getRandom(String[] str){
 
         // Gets random element from availableTasks array
         int rnd = new Random().nextInt(str.length);

@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Database {
+class Database {
 
-    public static Connection connect(){
+    // Connects to the SQLite database daysOfCode.db
+    private static Connection connect(){
         Connection conn = null;
         try {
             // db parameters
@@ -24,7 +25,8 @@ public class Database {
         return conn;
     }
 
-    public static void insert (String lastTask){
+    // Inserts a specific String, the same as the Randomizer class is generating.
+    static void insert (String lastTask){
         String sql = "INSERT INTO Table1(check1) VALUES(?)";
 
         try (Connection conn = connect();

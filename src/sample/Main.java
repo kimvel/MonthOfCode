@@ -17,16 +17,11 @@ public class Main extends Application {
         mainApplication.setResizable(false);
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
 }
 
-// TODO
-// Clean up variable names, or just names in general
-// Timer doesn't stop *
-// When pressing the pause button, the task is updated.
-// CSS for GUI?
-// Database
-//      Check if last db input is same as the newly randomized task, if true > randomize again and print.
+// TODO; FIX: The "task" is updating if you press the button to pause.
+// TODO: CSS AS GUI?
+// TODO: Check if last db input is same as the newly randomized task, if true > randomize again and print.
