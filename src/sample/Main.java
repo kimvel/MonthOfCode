@@ -25,6 +25,6 @@ public class Main extends Application {
 
 // TODO
 // Clean up variable names, or just names in general
-// Timer doesn't stop
-// Timer needs a pause
+// Timer doesn't stop *
+// When pressing the pause button, the task is updated.
 // CSS for GUI?

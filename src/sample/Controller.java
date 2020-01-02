@@ -1,42 +1,44 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static sample.CountdownTimer.seconds;
-import static sample.CountdownTimer.time;
-
 public class Controller {
 
+    private int seconds = 5;
+    private String time;
+
     @FXML private Text teksjt;
-    @FXML private Button btn;
+    @FXML private ToggleButton btn;
     @FXML private Text timeLeft;
 
-    @FXML void buttonClicked(){
+    Timer timer;
 
+    @FXML void buttonClicked(){
         teksjt.setText(Randomizer.getRandom(Randomizer.availableTasks));
-        btn.setDisable(true);
-        btn.setText("Pause");
-        startTimer();
+        if (btn.isSelected()){
+            startTimer();
+        } else{
+            isPaused();
+            btn.setText("Paused");
+        }
     }
 
-    public String startTimer(){
+    private String startTimer (){
 
-        Timer timer = new Timer();
+        timer = new Timer();
         TimerTask task = new TimerTask() {
 
             public void run(){
                 if (seconds >= 1) {
                     seconds--;
 
-                    CountdownTimer.time = String.format("%02d:%02d", seconds / 60, seconds % 60);
-                    timeLeft.setText(CountdownTimer.time);
+                    time = String.format("%02d:%02d", seconds / 60, seconds % 60);
+                    timeLeft.setText(time);
                 }
 
                 // Changing the text color of timeLeft when its appropriate
@@ -46,11 +48,21 @@ public class Controller {
                     timeLeft.setFill(Color.ORANGE);
                 } else if (time.matches("03:00")){
                     timeLeft.setFill(Color.RED);
+                } else if (time.matches("00:00")){
+                    isFinished();
                 }
             }
         };
         timer.scheduleAtFixedRate(task, 1000, 1000);
-        return CountdownTimer.time;
+        return time;
+    }
+
+    public void isPaused(){
+        timer.cancel();
+    }
+
+    public void isFinished(){
+        timer.cancel();
     }
 }
 
