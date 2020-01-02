@@ -29,4 +29,4 @@ public class Main extends Application {
 // When pressing the pause button, the task is updated.
 // CSS for GUI?
 // Database
-//      - If the same task as yesterday is selected, randomize again.
+//      Check if last db input is same as the newly randomized task, if true > randomize again and print.

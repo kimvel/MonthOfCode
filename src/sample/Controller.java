@@ -5,26 +5,24 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller {
 
-    private int seconds = 5;
+    private int seconds = 3600;
     private String time;
-    private String getLast;
 
-    @FXML private Text teksjt;
+    @FXML private Text taskText;
     @FXML private ToggleButton btn;
     @FXML private Text timeLeft;
 
     Timer timer;
 
     @FXML void buttonClicked(){
-        getLast = Randomizer.getRandom(Randomizer.availableTasks);
+        String getLast = Randomizer.getRandom(Randomizer.availableTasks);
 
-        teksjt.setText(getLast);
+        taskText.setText(getLast);
         if (btn.isSelected()){
             startTimer();
             Database.insert(getLast);

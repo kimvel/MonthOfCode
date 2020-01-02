@@ -31,7 +31,7 @@ public class Database {
              PreparedStatement pstmt = conn.prepareStatement(sql)){
             pstmt.setString(1, lastTask);
             pstmt.executeUpdate();
-            System.out.println("Correctly inserted to daysOfCode.db");
+            System.out.println("Correctly inserted to daysOfCode.db > Table1 > check1");
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }
