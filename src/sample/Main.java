@@ -28,3 +28,5 @@ public class Main extends Application {
 // Timer doesn't stop *
 // When pressing the pause button, the task is updated.
 // CSS for GUI?
+// Database
+//      - If the same task as yesterday is selected, randomize again.

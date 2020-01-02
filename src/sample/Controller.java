@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -11,6 +13,7 @@ public class Controller {
 
     private int seconds = 5;
     private String time;
+    private String getLast;
 
     @FXML private Text teksjt;
     @FXML private ToggleButton btn;
@@ -19,9 +22,12 @@ public class Controller {
     Timer timer;
 
     @FXML void buttonClicked(){
-        teksjt.setText(Randomizer.getRandom(Randomizer.availableTasks));
+        getLast = Randomizer.getRandom(Randomizer.availableTasks);
+
+        teksjt.setText(getLast);
         if (btn.isSelected()){
             startTimer();
+            Database.insert(getLast);
         } else{
             isPaused();
             btn.setText("Paused");
