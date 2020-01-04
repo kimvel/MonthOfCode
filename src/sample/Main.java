@@ -1,9 +1,11 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -15,6 +17,7 @@ public class Main extends Application {
         mainApplication.setScene(new Scene(root, 300, 400));
         mainApplication.show();
         mainApplication.setResizable(false);
+
     }
 
     public static void main(String[] args) {
@@ -23,5 +26,5 @@ public class Main extends Application {
 }
 
 // TODO; FIX: The "task" is updating if you press the button to pause.
-// TODO: CSS AS GUI?
-// TODO: Check if last db input is same as the newly randomized task, if true > randomize again and print.
+// TODO; CSS AS GUI?
+// TODO; Check if last db input is same as the newly randomized task, if true > randomize again and print.

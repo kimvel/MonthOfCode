@@ -9,13 +9,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller {
+
     @FXML private Text taskText;
     @FXML private ToggleButton btn;
     @FXML private Text timeLeft;
 
     private int seconds = 3600;
     private String time;
-
     private Timer timer;
 
     // When the button is clicked obviously.
@@ -46,7 +46,7 @@ public class Controller {
                     timeLeft.setText(time);
                 }
 
-                // Changing the text color of timeLeft when its appropriate
+                // Changing the text color of timeLeft when its appropriate & stops the Timer at 00:00.
                 if (time.matches("30:00")){
                     timeLeft.setFill(Color.YELLOW);
                 } else if (time.matches("15:00")){

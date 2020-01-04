@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #242424;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #242424;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Text id="teksjt" fx:id="taskText" fill="#e8e8e8" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="300.0">
+      <Text id="taskText" fx:id="taskText" fill="#e8e8e8" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="300.0">
          <font>
             <Font size="40.0" />
          </font></Text>
@@ -20,12 +20,12 @@
          <font>
             <Font name="Verdana" size="12.0" />
          </font></Text>
-      <Text fx:id="timeLeft" fill="#e8e8e8" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" textAlignment="CENTER" wrappingWidth="300.0">
+      <Text fx:id="timeLeft" fill="#e8e8e8" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60:00" textAlignment="CENTER" wrappingWidth="300.0">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <ToggleButton fx:id="btn" layoutX="71.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="53.0" prefWidth="159.0" text="ToggleButton" />
+      <ToggleButton fx:id="btn" layoutX="71.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="53.0" prefWidth="159.0" text="Start the day" />
    </children>
    <effect>
       <DropShadow />
