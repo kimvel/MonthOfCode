@@ -16,19 +16,25 @@ public class Controller {
 
     private int seconds = 3600;
     private String time;
+    private String getLast;
+    private boolean isRandomSelected = true;
     private Timer timer;
 
     // When the button is clicked obviously.
     @FXML void buttonClicked(){
-        String getLast = Randomizer.getRandom(Randomizer.availableTasks);
+        if (isRandomSelected){
+            getLast = Randomizer.getRandom(Randomizer.availableTasks);
+            isRandomSelected = false;
+        }
 
         taskText.setText(getLast);
         if (btn.isSelected()){
             startTimer();
             Database.insert(getLast);
+            btn.setText("Pause");
         } else{
             isPaused();
-            btn.setText("Paused");
+            btn.setText("Start");
         }
     }
 
