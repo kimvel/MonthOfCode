@@ -41,9 +41,11 @@ public class Controller {
         if (btn.isSelected()){
             startTimer();
             btn.setText("Pause");
+            btn.setStyle("-fx-border-color: #FFFFFF; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
         } else{
             isPaused();
             btn.setText("Continue");
+            btn.setStyle("-fx-border-color: #ED6E70; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
         }
     }
 

@@ -30,3 +30,4 @@ public class Main extends Application {
 // TODO; On-exit show a popup with the message "Are you sure?" and two button options, yes and no.
 // TODO; Count total hours coded, and show on App.
 // TODO; Pause effect? blur effect, popup..
+// TODO; Animations?
