@@ -25,6 +25,8 @@ public class Main extends Application {
     }
 }
 
-// TODO; FIX: The "task" is updating if you press the button to pause.
 // TODO; CSS AS GUI?
 // TODO; Check if last db input is same as the newly randomized task, if true > randomize again and print.
+// TODO; On-exit show a popup with the message "Are you sure?" and two button options, yes and no.
+// TODO; Count total hours coded, and show on App.
+// TODO; Pause effect? blur effect, popup..

@@ -10,31 +10,40 @@ import java.util.TimerTask;
 
 public class Controller {
 
-    @FXML private Text taskText;
-    @FXML private ToggleButton btn;
-    @FXML private Text timeLeft;
-
+    public Text topicOfTheDay;
+    public Text timeLeftTextOnly;
+    public Text taskText;
+    public ToggleButton btn;
+    public Text timeLeft;
     private int seconds = 3600;
     private String time;
     private String getLast;
     private boolean isRandomSelected = true;
     private Timer timer;
 
+    public Controller(){
+    }
+
     // When the button is clicked obviously.
     @FXML void buttonClicked(){
         if (isRandomSelected){
             getLast = Randomizer.getRandom(Randomizer.availableTasks);
             isRandomSelected = false;
+            Database.insert(getLast);
+
+            timeLeftTextOnly.setVisible(true);
+            topicOfTheDay.setVisible(true);
+            taskText.setVisible(true);
+            timeLeft.setVisible(true);
         }
 
         taskText.setText(getLast);
         if (btn.isSelected()){
             startTimer();
-            Database.insert(getLast);
             btn.setText("Pause");
         } else{
             isPaused();
-            btn.setText("Start");
+            btn.setText("Continue");
         }
     }
 
@@ -52,7 +61,7 @@ public class Controller {
                     timeLeft.setText(time);
                 }
 
-                // Changing the text color of timeLeft when its appropriate & stops the Timer at 00:00.
+                // Changing the text color of timeLeft when its appropriate & stops the Timer at 00:00. I know, i know. It's not a good solution.
                 if (time.matches("30:00")){
                     timeLeft.setFill(Color.YELLOW);
                 } else if (time.matches("15:00")){
