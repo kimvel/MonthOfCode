@@ -1,33 +1,38 @@
 package sample;
 
+import com.jfoenix.controls.JFXToolbar;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.zip.DeflaterOutputStream;
 
 public class Controller {
 
-    public Text topicOfTheDay;
-    public Text timeLeftTextOnly;
-    public Text taskText;
+    //FX imports
+    public Text topicOfTheDay, timeLeftTextOnly, taskText, timeLeft;
     public ToggleButton btn;
-    public Text timeLeft;
+    public Button exitBtn;
+
+    //
+    private double xOffset = 0;
+    private double yOffset = 0;
     private int seconds = 3600;
-    private String time;
-    private String getLast;
+    private String time, getLast;
     private boolean isRandomSelected = true;
+
+    // Timer
     private Timer timer;
 
-    public Controller(){
-    }
-
     // When the button is clicked obviously.
-    @FXML void buttonClicked(){
-        if (isRandomSelected){
-            getLast = Randomizer.getRandom(Randomizer.availableTasks);
+    @FXML void buttonClicked () {
+        if (isRandomSelected) {
+            getLast = Randomizer.getRandom(Randomizer.javaTopics);
             isRandomSelected = false;
             Database.insert(getLast);
 
@@ -38,24 +43,30 @@ public class Controller {
         }
 
         taskText.setText(getLast);
-        if (btn.isSelected()){
+        if (btn.isSelected()) {
             startTimer();
             btn.setText("Pause");
             btn.setStyle("-fx-border-color: #FFFFFF; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
-        } else{
+        } else {
             isPaused();
             btn.setText("Continue");
             btn.setStyle("-fx-border-color: #ED6E70; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
         }
     }
 
-    // Starts a timer for the periode of learning today.
-    private void startTimer (){
+    // to exit the application
+    @FXML void exitBtn () {
+        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        stage.close();
+    }
+
+    // Starts a timer for the period of learning today.
+    private void startTimer () {
 
         timer = new Timer();
         TimerTask task = new TimerTask() {
 
-            public void run(){
+            public void run () {
                 if (seconds >= 1) {
                     seconds--;
 
@@ -64,13 +75,13 @@ public class Controller {
                 }
 
                 // Changing the text color of timeLeft when its appropriate & stops the Timer at 00:00. I know, i know. It's not a good solution.
-                if (time.matches("30:00")){
+                if (time.matches("30:00")) {
                     timeLeft.setFill(Color.YELLOW);
-                } else if (time.matches("15:00")){
+                } else if (time.matches("15:00")) {
                     timeLeft.setFill(Color.ORANGE);
-                } else if (time.matches("03:00")){
+                } else if (time.matches("03:00")) {
                     timeLeft.setFill(Color.RED);
-                } else if (time.matches("00:00")){
+                } else if (time.matches("00:00")) {
                     isFinished();
                 }
             }
@@ -79,13 +90,19 @@ public class Controller {
     }
 
     // Helps the timer if pause is needed.
-    private void isPaused(){
+    private void isPaused () {
         timer.cancel();
     }
 
     // Stops the timer when finished, pretty much the same as the code above.
-    private void isFinished(){
+    private void isFinished () {
         timer.cancel();
+    }
+
+    private void onExit(){
+        // pause timer
+        // show popup
+        // give a yes/no if want to exit
     }
 }
 
