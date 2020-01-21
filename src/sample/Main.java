@@ -9,13 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    private double xOffset = 0;
-    private double yOffset = 0;
+    private double xOffset = -500;
+    private double yOffset = 500;
 
     @Override
     public void start(Stage mainApplication) throws Exception{
@@ -25,6 +26,9 @@ public class Main extends Application {
         mainApplication.initStyle(StageStyle.TRANSPARENT);
         mainApplication.setResizable(false);
         mainApplication.show();
+
+
+
 
             // get
         root.setOnMousePressed(event -> {
@@ -52,3 +56,5 @@ public class Main extends Application {
 //  -   Error: [SQLITE_CONSTRAINT]  Abort due to constraint violation (UNIQUE constraint failed: Table1.check1)
 //  -   Move window with the new titlebar
 //  -   Png is shit.
+//  -   Give an random array, and an random topic?
+//  -   BUG; Only allow to move window if clicked on top of the window.

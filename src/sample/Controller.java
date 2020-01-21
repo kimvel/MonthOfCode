@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXToolbar;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -18,6 +20,8 @@ public class Controller {
     public Text topicOfTheDay, timeLeftTextOnly, taskText, timeLeft;
     public ToggleButton btn;
     public Button exitBtn;
+    public ImageView closeImage;
+    public AnchorPane anchorPane;
 
     //
     private double xOffset = 0;
@@ -32,7 +36,7 @@ public class Controller {
     // When the button is clicked obviously.
     @FXML void buttonClicked () {
         if (isRandomSelected) {
-            getLast = Randomizer.getRandom(Randomizer.javaTopics);
+            getLast = Randomizer.getRandom(StringCollector.javaDev);
             isRandomSelected = false;
             Database.insert(getLast);
 
@@ -46,7 +50,7 @@ public class Controller {
         if (btn.isSelected()) {
             startTimer();
             btn.setText("Pause");
-            btn.setStyle("-fx-border-color: #FFFFFF; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
+            btn.setStyle("-fx-border-color: #242424; -fx-background-radius: 100; -fx-background-color: transparent; -fx-border-radius: 100;");
         } else {
             isPaused();
             btn.setText("Continue");
@@ -56,7 +60,7 @@ public class Controller {
 
     // to exit the application
     @FXML void exitBtn () {
-        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        Stage stage = (Stage) closeImage.getScene().getWindow();
         stage.close();
     }
 

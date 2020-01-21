@@ -1,55 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXToolbar?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #354672; -fx-background-insets: 0, 0 0 1 0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane id="anchorPane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-insets: 0, 0 0 1 0; -fx-background-radius: 0 0 20 20; -fx-border-color: #242424; -fx-border-radius: 0 0 20 20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <effect>
       <DropShadow />
    </effect>
-   <Text id="taskText" fx:id="taskText" fill="WHITE" layoutX="1.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enums" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
+   <Text id="taskText" fx:id="taskText" fill="#242424" layoutX="1.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enums" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
       <font>
          <Font name="System Bold" size="40.0" />
       </font>
    </Text>
-   <Text fx:id="topicOfTheDay" fill="WHITE" layoutX="1.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Learn" textAlignment="CENTER" underline="true" visible="false" wrappingWidth="300.0">
+   <Text fx:id="topicOfTheDay" fill="#242424" layoutX="1.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Learn" textAlignment="CENTER" underline="true" visible="false" wrappingWidth="300.0">
       <font>
          <Font name="Open Sans Bold" size="12.0" />
       </font>
    </Text>
-   <Text fx:id="timeLeftTextOnly" fill="WHITE" layoutX="1.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time left today" textAlignment="CENTER" underline="true" visible="false" wrappingWidth="300.0">
+   <Text fx:id="timeLeftTextOnly" fill="#242424" layoutX="1.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time left today" textAlignment="CENTER" underline="true" visible="false" wrappingWidth="300.0">
       <font>
          <Font name="Open Sans Bold" size="12.0" />
       </font>
    </Text>
-   <Text fx:id="timeLeft" fill="WHITE" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60:00" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
+   <Text fx:id="timeLeft" fill="#242424" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60:00" textAlignment="CENTER" visible="false" wrappingWidth="300.0">
       <font>
          <Font name="Open Sans Bold" size="36.0" />
       </font>
    </Text>
-   <ToggleButton fx:id="btn" layoutX="63.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="53.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 100;" text="Start the day" textFill="WHITE">
+   <ToggleButton fx:id="btn" layoutX="63.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="53.0" prefWidth="175.0" style="-fx-background-radius: 100; -fx-background-color: transparent; -fx-border-color: #242424; -fx-border-radius: 100;" text="Start the day" textFill="#242424">
       <font>
          <Font name="Open Sans Bold" size="18.0" />
       </font>
    </ToggleButton>
-   <JFXToolbar layoutX="1.0" prefHeight="25.0" prefWidth="300.0">
-      <right>
-         <ImageView fx:id="closeImage" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true" translateX="-5.0" translateY="5.0" BorderPane.alignment="CENTER">
-            <image>
-               <Image url="@delete_icon.png" />
-            </image>
-         </ImageView>
-      </right>
-      <center>
-         <Button id="exitBtn" fx:id="exitBtn" mnemonicParsing="false" onAction="#exitBtn" visible="false" BorderPane.alignment="CENTER" />
-      </center>
-   </JFXToolbar>
+   <ImageView fx:id="closeImage" fitHeight="16.0" fitWidth="16.0" layoutX="278.0" layoutY="6.0" onMouseClicked="#exitBtn" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@delete_icon.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

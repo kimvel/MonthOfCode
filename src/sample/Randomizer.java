@@ -1,26 +1,16 @@
 package sample;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 import java.util.Random;
 
 class Randomizer {
 
-    // String array that contains "tasks" or the generals of OOP.
-    static String[] javaTopics = {"Arrays", "Enums", "Objects", "Hashmap",
-            "Polymorphism", "Abstraction", "Classes", "Encapsulation",
-            "Information hiding", "Inheritance", "Interface", "Messaging",
-            "Procedure", "Garbage collection", "Cursors", "Triggers",
-            "Spring MVC","Hibernate", "Maven", "JUnit", "JFoenix"};
-
     // Gives a random String from the availableTasks array.
-    static String getRandom(String[] str){
+    static String getRandom(String[] getString){
 
         // Gets random element from availableTasks array
-        int rnd = new Random().nextInt(str.length);
+        int random = new Random().nextInt(getString.length);
 
         // returns the randomized string
-        return str[rnd];
+        return getString[random];
     }
 }

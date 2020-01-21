@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="DaysOfCode">
+    <output-path>$PROJECT_DIR$/out/artifacts/DaysOfCode</output-path>
+    <root id="archive" name="DaysOfCode.jar">
+      <element id="archive" name="DaysOfCode.jar">
+        <element id="module-output" name="DaysOfCode" />
+      </element>
+    </root>
+  </artifact>
+</component>
